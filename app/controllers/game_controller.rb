@@ -67,6 +67,10 @@ class GameController < ApplicationController
   def file_builder(body , content_type)
     return [false , "No content!"] unless body || body.empty?
     return [false , "Direct code injection! , can't use : (`|require|eval|Dir|system|gets|ENV|ARGF)"] if body.index(/(`|require|eval|Dir|system|gets|ENV|ARGF)/)
+
+    Rails.logger.info `pwd`
+    Rails.logger.info `ruby -v`
+    Rails.logger.info `ls -al tmp/run_me`
     
     init_content = case content_type
     when :twitter
