@@ -1,0 +1,37 @@
+<% @title = 'Sign up' %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name) , class: 'row') do |f| %>
+  <div class="col-md-6 col-md-offset-3">
+    <div class="row">
+      <div class="col-md-4"><!-- icon -->
+        <i class="fa fa-sign-in text_3d" style="font-size:150px;float:right;" title="sign in" alt="sign in"></i>
+      </div>
+      <div class="col-md-8"><!-- input -->
+        <div class="row" style="margin-bottom:4px;">
+          <div class="col-md-12">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+              <%= f.email_field :email, autofocus: true , class:'form-control' , placeholder:"E-Mail" %>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom:4px;">
+          <div class="col-md-12">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon"><i class="fa fa-key"></i></span>
+              <%= f.password_field :password, autocomplete: "off" , class:"form-control" , placeholder:"Password" %>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom:4px;"><!-- submit and link -->
+          <div class="col-md-6"> 
+            <button type="submit" class="btn btn-success btn-lg" style="width:100%;"><i class='fa fa-sign-in'></i> SIGN IN</button>
+          </div>
+          <div class="col-md-6">
+            <%= link_to "sign up" , new_user_registration_path , class:"btn btn-warning btn-lg" , style:"width:100%;" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= f.hidden_field :remember_me , value:'true' %>
+<% end %>

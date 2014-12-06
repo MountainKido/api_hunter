@@ -1,0 +1,21 @@
+Please submit your code :
+<%= form_tag twitter_trends_place_check_game_index_path do %>
+<%= text_area_tag :body , "=begin
+
+WORLD_WOE_ID = 1
+
+US_WOE_ID = 23424977
+
+world_trends = $twitter_api.trends_place(WORLD_WOE_ID)
+
+us_trends = $twitter_api.trends_place(US_WOE_ID)
+
+pp world_trends.attrs
+
+puts '^^ world ^^ , vv us vv'
+
+pp us_trends.attrs
+
+=end" , style:'font-family:monospace;width:100%;height:300px;' %>
+<button>SUBMIT</button>
+<% end %>

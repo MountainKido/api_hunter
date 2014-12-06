@@ -1,0 +1,8 @@
+Resource :
+  Bootstrap
+  FontAwesome
+  3D Text (CSS) : http://markdotto.com/playground/3d-text/
+  
+Ruby Gems :
+  devise (User)
+  twitter

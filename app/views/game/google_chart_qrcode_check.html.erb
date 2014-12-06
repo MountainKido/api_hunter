@@ -1,0 +1,23 @@
+<% content_for :js do %>
+  <script>
+  jQuery(function($){
+    try{
+
+      <%= raw(params[:body]) %>
+
+      $('.status .success').show();
+      $.get('/game/callback_success?id=5' , function(data){});
+    }catch(e){
+      $('.status .error').show();
+    }
+  });
+  </script>
+<% end %>
+
+<p class="status">
+<span class="success" style="display:none;">Congratulations!</span><span class="error" style="display:none;">Sorry...</span>
+</p>
+
+<p style="text-align:center;">
+  <img id="qrcode"/>
+</p>

@@ -1,0 +1,51 @@
+<% content_for :css do %>
+<style>
+  .challenges .challenge{
+    text-align:center;
+    padding-bottom:18px;
+    position:relative;
+  }
+  .challenges .challenge h2{
+    margin-top:10px;
+  }
+  .challenges .challenge i{
+    position:absolute;
+    left:20px;
+    top:12px;
+  }
+</style>
+<% end %>
+
+<p style="text-align:center;">
+Please choice your action :
+</p>
+<div class="row challenges">
+  <div class="col-md-4 challenge">
+    <h2><i class="fa fa-twitter"></i> trends place</h2>
+    <%= challenge_link_check(0 , twitter_trends_place_game_index_path) %>
+  </div>
+  <div class="col-md-4 challenge">
+    <h2><i class="fa fa-twitter"></i> draw kitten</h2>
+    <%= challenge_link_check(1 , twitter_draw_kitten_game_index_path) %>
+  </div>
+  <div class="col-md-4 challenge">
+    <h2><i class="fa fa-twitter"></i> obama</h2>
+    <%= challenge_link_check(2 , twitter_50_obama_game_index_path) %>
+  </div>
+  <div class="col-md-4 challenge">
+    <h2><i class="fa fa-map-marker"></i> goto London</h2>
+    <%= challenge_link_check(3 , google_map_london_game_index_path) %>
+  </div>
+  <div class="col-md-4 challenge">
+    <h2><i class="fa fa-map-marker"></i> change timezone</h2>
+    <%= challenge_link_check(4 , google_map_timezone_game_index_path) %>
+  </div>
+  <div class="col-md-4 challenge">
+    <h2><i class="fa fa-qrcode"></i> QRcode</h2>
+    <%= challenge_link_check(5 , google_chart_qrcode_game_index_path) %>
+  </div>
+</div>
+
+<p style="text-align:center;">
+  <%= link_to raw('<i class="fa fa-info"></i> About') , about_game_index_path , class:'btn btn-warning btn-xs' %>
+</p>

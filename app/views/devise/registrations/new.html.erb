@@ -1,0 +1,51 @@
+<% @title = 'Sign up' %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="col-md-6 col-md-offset-3">
+    <div class="row">
+      <%= devise_error_messages! %>
+      <div class="col-md-4"><!-- icon -->
+        <i class="fa fa-user text_3d" style="font-size:240px;float:right;" title="sign in" alt="sign in"></i>
+      </div>
+      <div class="col-md-8"><!-- input -->
+        <div class="row" style="margin-bottom:4px;">
+          <div class="col-md-12">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon"><i class="fa fa-paw" style="width:18px;"></i></span>
+              <%= f.text_field :name, autofocus: true , class:'form-control' , placeholder:"Name" %>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom:4px;">
+          <div class="col-md-12">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" style="width:18px;"></i></span>
+              <%= f.email_field :email, autofocus: true , class:'form-control' , placeholder:"E-Mail" %>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom:4px;">
+          <div class="col-md-12">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon"><i class="fa fa-key" style="width:18px;"></i></span>
+              <%= f.password_field :password, autocomplete: "off" , class:"form-control" , placeholder:"Password ( #{@minimum_password_length} characters+ )" %>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom:4px;">
+          <div class="col-md-12">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon"><i class="fa fa-check-square-o" style="width:18px;"></i></span>
+              <%= f.password_field :password_confirmation, autocomplete: "off" , class:"form-control" , placeholder:"Password confirmation" %>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom:4px;"><!-- submit and link -->
+          <div class="col-md-6 col-md-offset-6">
+            <button type="submit" class="btn btn-success btn-lg" style="width:100%;"><i class="fa fa-download"></i> SUBMIT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= f.hidden_field :remember_me , value:'true' %>
+<% end %>

@@ -1,0 +1,28 @@
+Please submit your code :
+<%= form_tag twitter_draw_kitten_check_game_index_path do %>
+<%= text_area_tag :body , '=begin
+
+WIDTH = 200
+HEIGHT = 300
+
+save_path = "tmp/kitten.jpg"
+
+file = File.open(save_path, "w")
+file.write(
+  open("http://placekitten.com/g/#{WIDTH}/#{HEIGHT}").read
+)
+file.close
+
+file = File.open(save_path, "r")
+
+new_twitter = $twitter_api.update_with_media(
+  "kitten so cute <3",
+  file
+)
+#File.delete(save_path)
+
+puts new_twitter.url.to_s
+
+=end' , style:'font-family:monospace;width:100%;height:300px;' %>
+<button>SUBMIT</button>
+<% end %>

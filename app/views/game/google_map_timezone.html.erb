@@ -1,0 +1,43 @@
+Please submit your code :
+<%= form_tag google_map_timezone_check_game_index_path do %>
+<%= text_area_tag :body , "/*
+
+  geocoder = new google.maps.Geocoder();
+  map = new google.maps.Map($('#google_map')[0],{
+    zoom: 12,
+    center: new google.maps.LatLng(-34.397, 150.644)
+  });
+  
+  var search_location = 'Berlin';
+
+  geocoder.geocode({
+    address:search_location,
+    latLng:map.getCenter()
+  },function(point, status){
+    if(status === google.maps.GeocoderStatus.OK && point && point[0]){
+      map.setCenter(point[0].geometry.location);
+
+      var center = map.getCenter();
+
+      var lat = center.lat();
+      var lng = center.lng();
+      var now = (new Date()).getTime() / 1000;
+
+      var url = 'https://maps.googleapis.com/maps/api/timezone/json?language=es'
+          url += '&location=' + lat + ',' + lng
+          url += '&timestamp=' + now
+
+      $.getJSON(url , function(data){
+        ans = '//get Timezone : ' + search_location + ' : latlng( ' + lat + ' , ' + lng + ' ) \\n '
+        for(var i in data){
+          ans += '    ' + i + ' : ' + data[i] + ' \\n '
+        }
+        $('pre#timezone_show').html(ans)
+      });
+
+    }
+  });
+
+*/" , style:'font-family:monospace;width:100%;height:300px;' %>
+<button>SUBMIT</button>
+<% end %>

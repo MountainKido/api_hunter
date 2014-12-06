@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ApiHunter</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <link href="/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/bootstrap/css/bootstrap-theme.min.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/font-awesome/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/layout.css" media="screen" rel="stylesheet" type="text/css" />
+  <%= csrf_meta_tags %>
+  <%= yield :css %>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text_3d center" style="font-size:80px;margin:40px 0 30px 0;"><a href="/" style="color:#fff;text-decoration:none;">API Hunter</a><%= " : #{@title}" if @title %></h1>
+    <% if current_user %>
+      <span style="position:absolute;right:40px;top:40px;">Hi <%= current_user.name %> ! <%= link_to 'Logout' , destroy_user_session_path , data:{method:'delete'} , class:'btn btn-warning btn-xs' %></span>
+    <% end %>
+
+    
+<%= yield %>
+
+  </div>
+
+  <%= javascript_include_tag 'application' %>
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
+  <%= yield :js %>
+</body>
+</html>

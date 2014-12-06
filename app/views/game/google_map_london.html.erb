@@ -1,0 +1,22 @@
+Please submit your code :
+<%= form_tag google_map_london_check_game_index_path do %>
+<%= text_area_tag :body , "/*
+
+  geocoder = new google.maps.Geocoder();
+  map = new google.maps.Map($('#google_map')[0],{
+    zoom: 12,
+    center: new google.maps.LatLng(-34.397, 150.644)
+  });
+  
+  geocoder.geocode({
+    address:'london',
+    latLng:map.getCenter()
+  },function(point, status){
+    if(status === google.maps.GeocoderStatus.OK && point && point[0]){
+      map.setCenter(point[0].geometry.location);
+    }
+  });
+
+*/" , style:'font-family:monospace;width:100%;height:300px;' %>
+<button>SUBMIT</button>
+<% end %>
