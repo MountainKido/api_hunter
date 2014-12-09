@@ -1,0 +1,13 @@
+/*
+
+  write a code using Google Maps API to show 'Berlin' and timezone
+
+  # https://developers.google.com/maps/documentation/javascript/3.exp/reference
+  # bind to element '#google_map'
+  # use Geocoder to search address 'Berlin'
+  #
+  # https://developers.google.com/maps/documentation/timezone/
+  # use map location (lat , lng) to search timezone data
+  # display timezone info in 'pre#timezone_show'
+
+*/

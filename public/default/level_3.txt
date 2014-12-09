@@ -1,0 +1,9 @@
+/*
+
+  write a code using Google Maps API to show 'London'
+
+  # https://developers.google.com/maps/documentation/javascript/3.exp/reference
+  # bind to element '#google_map'
+  # use Geocoder to search address 'London'
+
+*/  

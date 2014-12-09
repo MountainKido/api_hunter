@@ -1,0 +1,10 @@
+/*
+
+  please write a code that uses Twitter Api to retrieve thw world trend.
+
+  # https://github.com/sferik/twitter
+  # initialized : $twitter_api
+
+  # please use 'pp' to output answer
+
+*/

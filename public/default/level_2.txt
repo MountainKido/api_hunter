@@ -1,0 +1,10 @@
+=begin
+
+  write a code to utilize twitter api to find the latest 20 tweets of the user " @barackObama"
+
+  # https://github.com/sferik/twitter
+  # initialized : $twitter_api
+
+  # please use 'pp' to output answer
+
+=end

@@ -1,0 +1,10 @@
+/*
+
+  make Google Map + Google Street view working together & show info
+
+  # https://developers.google.com/maps/documentation/javascript/3.exp/reference
+  # bind Google Map to element '#google_map'
+  # bind Google Street View to element '#panorama'
+  # show info to element '#map_info'
+
+*/

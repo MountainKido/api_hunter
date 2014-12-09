@@ -1,0 +1,11 @@
+/*
+
+  make Google Map look like the game : ingress
+
+  # https://developers.google.com/maps/documentation/javascript/3.exp/reference
+  # bind to element '#google_map'
+
+  # http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html
+  # (style marker) & set 'map_style'
+
+*/

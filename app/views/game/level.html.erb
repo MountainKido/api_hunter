@@ -12,7 +12,7 @@
 <script>
   jQuery(function($){
 $('#hint').click(function(){
-  $.get('/hint/level_' + $(this).attr('data-level') + '.txt' , function(data){
+  $.get('/hint/level_<%= @level %>.txt' , function(data){
     $('#input_body').val(data);
   });
   return false;
@@ -21,6 +21,12 @@ $('#clear').click(function(){
   $('#input_body').val('');
   return false;
 });
+
+    //autoload
+    $.get('/default/level_<%= @level %>.txt' , function(data){
+      $('#input_body').val(data);
+    });
+
   });
 </script>
 <% end %>
@@ -29,7 +35,7 @@ $('#clear').click(function(){
   <%= text_area_tag :body , '' , id:'input_body' , autofocus:'autofocus' %>
   <div style="text-align:center;margin:20px;">
     <button id='submit' class='btn btx-xl btn-success'>SUBMIT</button>
-    <button id='hint' class='btn btn-xl btn-warning' data-level="<%= @level %>">hint</button>
+    <button id='hint' class='btn btn-xl btn-warning'>hint</button>
     <button id='clear' class='btn btn-xl btn-danger'>clean</button>
   </div>
 <% end %>

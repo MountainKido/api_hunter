@@ -1,0 +1,8 @@
+/*
+
+  show a Google Street view
+
+  # https://developers.google.com/maps/documentation/javascript/3.exp/reference
+  # bind to element '#panorama'
+
+*/

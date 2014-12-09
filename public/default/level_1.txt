@@ -1,0 +1,11 @@
+=begin
+
+  use twitter API to draw a kitten from this site : http://placekitten.com/
+  
+  # https://github.com/sferik/twitter
+  # initialized : $twitter_api
+  # file must save in local and upload to twitter
+
+  # please use 'puts' output submitted twitter url
+
+=end
