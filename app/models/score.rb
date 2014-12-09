@@ -1,5 +1,5 @@
 class Score < ActiveRecord::Base
-  LEVEL_COUNT = 6
+  LEVEL_COUNT = 9
   TWITTER_LEVEL = [0,1,2]
 
   def self.save_score(level , current_user , is_success , is_callback , source , result)

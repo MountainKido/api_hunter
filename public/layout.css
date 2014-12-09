@@ -49,3 +49,18 @@ p , h2 , .font_note{
 .ans_title.ans_title_fail{
   color:#600;
 }
+
+.challenges .challenge{
+  text-align:center;
+  padding-bottom:18px;
+  position:relative;
+}
+.challenges .challenge h2{
+  margin-top:30px;
+}
+.challenges .challenge i{
+  margin-right:10px;
+}
+.challenges .btn{
+  font-family:inherit;
+}

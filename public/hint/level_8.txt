@@ -1,0 +1,10 @@
+  var qrcode_content = 'I <3 API :)'
+  var size = 300;
+
+  qrcode_content = encodeURIComponent(qrcode_content);
+
+  var url = 'http://chart.apis.google.com/chart?cht=qr'
+  url += '&chs=' + size + 'x' + size
+  url += '&chl=' + qrcode_content
+
+  $('#qrcode').attr('src' , url);

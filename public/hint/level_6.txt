@@ -1,0 +1,10 @@
+  var fenway = new google.maps.LatLng(48.856658, 2.35156);
+  var panoramaOptions = {
+    position: fenway,
+    pov: {
+      heading:110.23,
+      zoom:-2,
+      pitch:30.056
+    }
+  };
+  var panorama = new google.maps.StreetViewPanorama($('#panorama')[0],panoramaOptions);

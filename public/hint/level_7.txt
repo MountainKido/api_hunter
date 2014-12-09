@@ -1,0 +1,34 @@
+  var pre = $('#map_info');
+  function show_position(a,b,c,d,e,f){
+    pre.html("{ \n\
+  location_lat:" + panorama.getPosition().lat() + ", \n\
+  location_lng:" + panorama.getPosition().lng() + ", \n\
+  pov_heading:" + panorama.getPov().heading + ", \n\
+  pov_pitch:" + panorama.getPov().pitch + ", \n\
+  pov_zoom:" + panorama.getPov().zoom + ", \n\
+  map_zoom:" + map.getZoom() + " \n\
+}");
+  }
+
+  var fenway = new google.maps.LatLng(9.08529, 123.272506);
+  var mapOptions = {
+    center: fenway,
+    zoom: 12
+  };
+  var map = new google.maps.Map(
+      document.getElementById('google_map'), mapOptions);
+  var panoramaOptions = {
+    position: fenway,
+    pov: {
+      heading: 39,
+      pitch: 13
+    }
+  };
+  var panorama = new google.maps.StreetViewPanorama(document.getElementById('panorama'), panoramaOptions);
+  map.setStreetView(panorama);
+
+  google.maps.event.addListener(map, 'center_changed', show_position);
+  google.maps.event.addListener(map, 'zoom_changed', show_position);
+  google.maps.event.addListener(panorama, 'position_changed', show_position);
+  google.maps.event.addListener(panorama, 'pov_changed', show_position);
+

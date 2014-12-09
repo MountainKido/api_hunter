@@ -1,22 +1,3 @@
-<% content_for :css do %>
-<style>
-  .challenges .challenge{
-    text-align:center;
-    padding-bottom:18px;
-    position:relative;
-  }
-  .challenges .challenge h2{
-    margin-top:30px;
-  }
-  .challenges .challenge i{
-    margin-right:10px;
-  }
-  .challenges .btn{
-    font-family:inherit;
-  }
-</style>
-<% end %>
-
 <h2 class="ans_title shake shake-slow">
 Please choice your action :
 </h2>
@@ -42,11 +23,19 @@ Please choice your action :
     <%= challenge_link(4) %>
   </div>
   <div class="col-md-4 challenge">
-    <h2><i class="fa fa-qrcode"></i> QRcode</h2>
+    <h2><i class="fa fa-map-marker"></i> ingress style</h2>
     <%= challenge_link(5) %>
   </div>
+  <div class="col-md-4 challenge">
+    <h2><i class="fa fa-map-marker"></i> street view</h2>
+    <%= challenge_link(6) %>
+  </div>
+  <div class="col-md-4 challenge">
+    <h2><i class="fa fa-map-marker"></i> where an I</h2>
+    <%= challenge_link(7) %>
+  </div>
+  <div class="col-md-4 challenge">
+    <h2><i class="fa fa-qrcode"></i> QRcode</h2>
+    <%= challenge_link(8) %>
+  </div>
 </div>
-
-<p style="text-align:center;">
-  <%= link_to raw('<i class="fa fa-info"></i> About') , about_game_index_path , class:'btn btn-warning btn-xs' %>
-</p>

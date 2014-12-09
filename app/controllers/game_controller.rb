@@ -4,7 +4,7 @@ require 'open3'
 
 class GameController < ApplicationController
   PATH = 'tmp/run_me'
-  before_action :authenticate_user!
+  before_action :authenticate_user! , :except => [:about]
   skip_before_action :verify_authenticity_token , :only => [:level_callback]
   
 #static page
