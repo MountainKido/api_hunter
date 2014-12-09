@@ -85,7 +85,7 @@ $twitter_api = Twitter::REST::Client.new do |config|
   config.consumer_key        = '#{Setting.get('twitter_consumer_key')}'
   config.consumer_secret     = '#{Setting.get('twitter_consumer_secret')}'
   config.access_token        = '#{Setting.get('twitter_access_token')}'
-  config.access_token_secret = '#{Setting.ger('twitter_access_token_secret')}'
+  config.access_token_secret = '#{Setting.get('twitter_access_token_secret')}'
 end"
     end
     
