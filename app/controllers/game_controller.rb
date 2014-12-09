@@ -5,14 +5,16 @@ require 'open3'
 class GameController < ApplicationController
   PATH = 'tmp/run_me'
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token , :only => [:level_callback]
   
 #static page
   def index
     @title = 'Welcome'
-  end
-  def callback_success
-    check_status(params[:id])
-    render text:''
+
+    @games = {}
+    Score.where(:user_id => current_user.id).each do |score|
+      @games[score.level] = score
+    end
   end
   def about
     @title = 'About'
@@ -20,46 +22,29 @@ class GameController < ApplicationController
   
 #game page
   
-  def twitter_trends_place #0
+  def level
+    @level = params[:id].to_i
   end
-  def twitter_trends_place_check
-    @title = "Submit"
-    @success , @message = file_builder(params[:body] , :twitter)
-    check_status(0) if @success
+  def level_save
+    @level = params[:id].to_i
+    if Score::TWITTER_LEVEL.include?(@level)
+      is_success , result = file_builder(params[:body] , :twitter)
+      score = Score.save_score(@level , current_user , is_success , true , params[:body] , result)
+    else
+      score = Score.save_score(@level , current_user , false , false , params[:body] , params[:body])
+    end
+    redirect_to level_show_game_path(score.id)
   end
-  
-  def twitter_draw_kitten #1
+  def level_show
+    @score = Score.where(:id => params[:id]).first
+    redirect_to root_path unless @score
+    @level = @score.level
+    @message = @score.result
+    @by_user = User.where(:id => @score.user_id).first
   end
-  def twitter_draw_kitten_check
-    @title = "Submit"
-    @success , @message = file_builder(params[:body] , :twitter)
-    check_status(1) if @success
-  end
-  
-  def twitter_50_obama #2
-  end
-  def twitter_50_obama_check
-    @title = "Submit"
-    @success , @message = file_builder(params[:body] , :twitter)
-    check_status(2) if @success
-  end
-  
-  def google_map_london #3
-  end
-  def google_map_london_check
-    @title = "Submit"
-  end
-  
-  def google_map_timezone #4
-  end
-  def google_map_timezone_check
-    @title = "Submit"
-  end
-  
-  def google_chart_timezone #5
-  end
-  def google_chart_timezone_check
-    @title = "Submit"
+  def level_callback
+    Score.find(params[:id]).update_attributes(is_success:params['is_success'].to_i == 1,is_callback:true)
+    render text:''
   end
   
   private
@@ -109,8 +94,13 @@ end"
     rescue
     end
     `kill -9 #{status.pid}` unless status.exited?
+
+    success = false
+    if status.success?
+      success = stdout_str.length > 20
+    end
     
-    return [ status.success? , status.success? ? stdout_str : stderr_str]
+    return [ !!success , status.success? ? stdout_str : stderr_str]
   ensure
     `rm #{@random_name}` if @random_name #clear
   end

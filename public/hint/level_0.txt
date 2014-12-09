@@ -1,0 +1,15 @@
+WORLD_WOE_ID = 1
+
+US_WOE_ID = 23424977
+
+ans = {}
+
+ans[:world_trends] = $twitter_api.trends_place(WORLD_WOE_ID)
+
+ans[:us_trends] = $twitter_api.trends_place(US_WOE_ID)
+
+ans[:world_trends] = ans[:world_trends].attrs
+
+ans[:us_trends] = ans[:us_trends].attrs
+
+pp ans

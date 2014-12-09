@@ -1,0 +1,20 @@
+<% content_for :js do %>
+  <script>
+  jQuery(function($){
+    var is_success = false;
+    try{
+
+      <%= raw(@message) %>
+
+      is_success = true;
+    }catch(e){}
+
+    send_success(is_success , <%= @score.id %>);
+
+  });
+  </script>
+<% end %>
+
+<p style="text-align:center;">
+  <img id="qrcode"/>
+</p>

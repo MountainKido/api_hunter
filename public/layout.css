@@ -19,9 +19,33 @@
 h1 , .font_logo{
   font-family: 'Condiment', cursive;
 }
+textarea{
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #336;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5ff;
+  border: 1px solid #ccf;
+  border-radius: 4px;
+}
 textarea , pre , .btn , .font_source{
-  font-family: 'Source Code Pro', ;
+  font-family: 'Source Code Pro', monospace ;
 }
 p , h2 , .font_note{
   font-family: 'Special Elite', cursive;
+}
+.ans_title{
+  font-size:40px;
+  text-align:center;
+  display:block !important;
+}
+.ans_title.ans_title_success{
+  color:#060;
+}
+.ans_title.ans_title_fail{
+  color:#600;
 }

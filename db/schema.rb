@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206122433) do
+ActiveRecord::Schema.define(version: 20141209131916) do
+
+  create_table "scores", force: true do |t|
+    t.integer "level",       limit: 1, default: 0,     null: false
+    t.integer "user_id",                               null: false
+    t.boolean "is_success",            default: false, null: false
+    t.boolean "is_callback",           default: false, null: false
+    t.text    "source"
+    t.text    "result"
+  end
+
+  add_index "scores", ["level", "user_id"], name: "index_scores_on_level_and_user_id", unique: true, using: :btree
+
+  create_table "settings", force: true do |t|
+    t.string  "name",                        null: false
+    t.integer "kind",  limit: 1, default: 0, null: false
+    t.string  "value",                       null: false
+  end
+
+  add_index "settings", ["name"], name: "index_settings_on_name", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name",                   default: "", null: false

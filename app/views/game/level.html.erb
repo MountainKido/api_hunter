@@ -1,0 +1,35 @@
+<% content_for :css do %>
+<style>
+  #input_body{
+    width:80%;
+    height:300px;
+    display:block;
+    margin:0 auto;
+  }
+</style>
+<% end %>
+<% content_for :js do %>
+<script>
+  jQuery(function($){
+$('#hint').click(function(){
+  $.get('/hint/level_' + $(this).attr('data-level') + '.txt' , function(data){
+    $('#input_body').val(data);
+  });
+  return false;
+});
+$('#clear').click(function(){
+  $('#input_body').val('');
+  return false;
+});
+  });
+</script>
+<% end %>
+<h2 class="ans_title shake shake-slow">Please submit your code :</h2>
+<%= form_tag level_save_game_path(@level) do %>
+  <%= text_area_tag :body , '' , id:'input_body' , autofocus:'autofocus' %>
+  <div style="text-align:center;margin:20px;">
+    <button id='submit' class='btn btx-xl btn-success'>SUBMIT</button>
+    <button id='hint' class='btn btn-xl btn-warning' data-level="<%= @level %>">hint</button>
+    <button id='clear' class='btn btn-xl btn-danger'>clean</button>
+  </div>
+<% end %>

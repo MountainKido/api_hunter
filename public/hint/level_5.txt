@@ -1,7 +1,3 @@
-Please submit your code :
-<%= form_tag google_chart_qrcode_check_game_index_path do %>
-<%= text_area_tag :body , "/*
-
   var qrcode_content = 'I <3 API :)'
   var size = 300;
 
@@ -12,7 +8,3 @@ Please submit your code :
   url += '&chl=' + qrcode_content
 
   $('#qrcode').attr('src' , url);
-
-*/" , style:'font-family:monospace;width:100%;height:300px;' %>
-<button>SUBMIT</button>
-<% end %>

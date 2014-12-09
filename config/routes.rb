@@ -2,29 +2,21 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :game , :only => [:index] do
+  resources :profile , :only => [:index] do
+    collection do
+      post :save
+    end
+  end
+
+  resources :game , :only => [:show] do
     collection do
       get  'about'
-      get  'callback_success'
-      
-      get  'twitter_trends_place'
-      post 'twitter_trends_place_check'
-
-      get  'twitter_draw_kitten'
-      post 'twitter_draw_kitten_check'
-
-      get  'twitter_50_obama'
-      post 'twitter_50_obama_check'
-
-      get  'google_map_london'
-      post 'google_map_london_check'
-
-      get  'google_map_timezone'
-      post 'google_map_timezone_check'
-      
-      get  'google_chart_qrcode'
-      post 'google_chart_qrcode_check'
-
+    end
+    member do
+      post 'level_callback'
+      get  'level'
+      post 'level_save'
+      get  'level_show'
     end
   end
 

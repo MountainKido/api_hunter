@@ -6,43 +6,44 @@
     position:relative;
   }
   .challenges .challenge h2{
-    margin-top:10px;
+    margin-top:30px;
   }
   .challenges .challenge i{
-    position:absolute;
-    left:20px;
-    top:12px;
+    margin-right:10px;
+  }
+  .challenges .btn{
+    font-family:inherit;
   }
 </style>
 <% end %>
 
-<p style="text-align:center;">
+<h2 class="ans_title shake shake-slow">
 Please choice your action :
-</p>
+</h2>
 <div class="row challenges">
   <div class="col-md-4 challenge">
     <h2><i class="fa fa-twitter"></i> trends place</h2>
-    <%= challenge_link_check(0 , twitter_trends_place_game_index_path) %>
+    <%= challenge_link(0) %>
   </div>
   <div class="col-md-4 challenge">
     <h2><i class="fa fa-twitter"></i> draw kitten</h2>
-    <%= challenge_link_check(1 , twitter_draw_kitten_game_index_path) %>
+    <%= challenge_link(1) %>
   </div>
   <div class="col-md-4 challenge">
     <h2><i class="fa fa-twitter"></i> obama</h2>
-    <%= challenge_link_check(2 , twitter_50_obama_game_index_path) %>
+    <%= challenge_link(2) %>
   </div>
   <div class="col-md-4 challenge">
     <h2><i class="fa fa-map-marker"></i> goto London</h2>
-    <%= challenge_link_check(3 , google_map_london_game_index_path) %>
+    <%= challenge_link(3) %>
   </div>
   <div class="col-md-4 challenge">
-    <h2><i class="fa fa-map-marker"></i> change timezone</h2>
-    <%= challenge_link_check(4 , google_map_timezone_game_index_path) %>
+    <h2><i class="fa fa-map-marker"></i> get timezone</h2>
+    <%= challenge_link(4) %>
   </div>
   <div class="col-md-4 challenge">
     <h2><i class="fa fa-qrcode"></i> QRcode</h2>
-    <%= challenge_link_check(5 , google_chart_qrcode_game_index_path) %>
+    <%= challenge_link(5) %>
   </div>
 </div>
 

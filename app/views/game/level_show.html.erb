@@ -1,0 +1,32 @@
+<% content_for :js do %>
+<script>
+function send_success(is_success , score_id){
+<% unless @score.is_callback  %>
+  $.post('/game/' + score_id + '/level_callback' , {is_success : is_success ? 1 : 0} , function(data){});
+  if(is_success){
+    $('.check_me.check_success').show();
+  }else{
+    $('.check_me.check_error').show();
+  }
+<% end %>
+}
+
+</script>
+<% end %>
+
+
+<% if @score.is_callback  %>
+  <% if @score.is_success %>
+<h2 class="ans_title ans_title_success shake shake-slow">Congratulations!</h2>
+  <% else %>
+<h2 class="ans_title ans_title_fail shake shake-slow">Sorry...</h2>
+  <% end %>
+<% else %>
+<h2 class='ans_title ans_title_success check_me check_success shake shake-slow' style="display:none;">
+  Congratulations!
+</h2>
+<h2 class='ans_title ans_title_fail check_me check_error shake shake-slow' style="display:none;">
+  Sorry...
+</h2>
+<% end %>
+<%= render "level_show_#{@level}"%>

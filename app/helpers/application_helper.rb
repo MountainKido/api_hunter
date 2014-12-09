@@ -1,10 +1,15 @@
 module ApplicationHelper
-  def challenge_link_check(index , link)
-    session[:checked] ||= {}
-    if session[:checked][index.to_s]
-      link_to 'Success!!' , link , class:'btn btn-success'
+  def challenge_link(index)
+    source = @games[index]
+    if source
+      (link_to 'result' , level_show_game_path(source.id) , class:'btn btn-info' ) + ' ' +
+      if source.is_success
+        link_to 'Successful , Replay »' , level_game_path(index) , class:'btn btn-success'
+      else
+        link_to 'Challenge fails , Replay »' , level_game_path(index) , class:'btn btn-warning'
+      end
     else
-      link_to 'Play »' , link , class:'btn btn-warning'
+      link_to 'Play »' , level_game_path(index) , class:'btn btn-warning'
     end
   end
 end

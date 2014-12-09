@@ -1,7 +1,3 @@
-Please submit your code :
-<%= form_tag twitter_draw_kitten_check_game_index_path do %>
-<%= text_area_tag :body , '=begin
-
 WIDTH = 200
 HEIGHT = 300
 
@@ -19,10 +15,5 @@ new_twitter = $twitter_api.update_with_media(
   "kitten so cute <3",
   file
 )
-#File.delete(save_path)
 
-puts new_twitter.url.to_s
-
-=end' , style:'font-family:monospace;width:100%;height:300px;' %>
-<button>SUBMIT</button>
-<% end %>
+puts new_twitter.url

@@ -1,0 +1,5 @@
+<%= form_tag save_profile_index_path do %>
+E-Mail : <%= current_user.email %><br/>
+name : <%= text_field_tag 'name' , current_user.name %><br/>
+<button>submit</button>
+<% end %>

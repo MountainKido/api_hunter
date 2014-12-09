@@ -1,0 +1,12 @@
+
+ans = []
+
+$twitter_api.user_timeline("barackobama").each do |twitter|
+  ans << {
+    text: twitter.text,
+    favorite_count: twitter.favorite_count
+  }
+end
+
+pp ans
+
