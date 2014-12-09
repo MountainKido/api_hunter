@@ -1,16 +1,16 @@
 class Setting < ActiveRecord::Base
-  def self.get(key)
-    Setting.where(key:key).first.value rescue nil
+  def self.get(name)
+    Setting.where(name:name).first.value rescue nil
   end
-  def self.set(key , value)
-    setting = Setting.where(key:key).first
+  def self.set(name , value)
+    setting = Setting.where(name:name).first
     if setting
-      setting.update_attribute('key' , value)
+      setting.update_attribute('name' , value)
     else
-      Setting.create(key:key , value:value)
+      Setting.create(name:name , value:value)
     end
   end
-  def self.del(key)
-    Setting.where(key:key).delete_all
+  def self.del(name)
+    Setting.where(name:name).delete_all
   end
 end
