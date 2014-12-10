@@ -12,7 +12,7 @@
 <script>
   jQuery(function($){
 $('#hint').click(function(){
-  $.get('/hint/level_<%= @level %>.txt' , function(data){
+  $.get('/hint/level_<%= @level %>.txt?' + Math.random() , function(data){
     $('#input_body').val(data);
   });
   return false;
@@ -23,7 +23,7 @@ $('#clear').click(function(){
 });
 
     //autoload
-    $.get('/default/level_<%= @level %>.txt' , function(data){
+    $.get('/default/level_<%= @level %>.txt?' + Math.random() , function(data){
       $('#input_body').val(data);
     });
 
