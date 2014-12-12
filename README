@@ -6,3 +6,6 @@ Resource :
 Ruby Gems :
   devise (User)
   twitter
+
+
+This is a prototype for an API Scavenger Hunt using Google Maps API, Twitter API, and QR Code API.
